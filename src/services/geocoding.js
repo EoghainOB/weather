@@ -9,7 +9,8 @@ const api = axios.create({
 export default {
   async getAddress(lat, lng) {
     const apiKey = import.meta.env.VITE_GEOAPIFY;
-    return api.get(`/reverse?lat=${lat}&lon=${lng}&apiKey=${apiKey}`);
+    const res = api.get(`/reverse?lat=${lat}&lon=${lng}&apiKey=${apiKey}`);
+    return res;
   },
   async getCoordinates(address) {
     const apiKey = import.meta.env.VITE_GEOAPIFY;
