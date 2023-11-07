@@ -1,28 +1,37 @@
 <template v-if="currentWeatherData.time">
-  <h2>Current</h2>
-  <h4 v-if="locationAddress">
-    {{ locationAddress.city }}
-  </h4>
-  <div v-if="weatherType.day">
-    <img
-      :src="weatherType[timeOfDay].image"
-      :alt="weatherType.day.description"
-    />
-    <h4>{{ weatherType[timeOfDay].description }}</h4>
+  <div class="currentWeather">
+    <h2>Current</h2>
+    <h4 v-if="locationAddress">
+      {{ locationAddress.city }}
+    </h4>
+    <div v-if="weatherType.day">
+      <img
+        :src="weatherType[timeOfDay].image"
+        :alt="weatherType.day.description"
+      />
+      <h4>{{ weatherType[timeOfDay].description }}</h4>
+    </div>
+    <h4>{{ currentWeatherData.temperature_2m }}&#176;C</h4>
+    <h4>{{ currentWeatherData.relativehumidity_2m }}% humidity</h4>
+    <h4>{{ windDirection }}</h4>
+    <h4>{{ currentWeatherData.windspeed_10m }}kmh</h4>
   </div>
-  <h4>{{ currentWeatherData.temperature_2m }}&#176;C</h4>
-  <h4>{{ currentWeatherData.relativehumidity_2m }}% humidity</h4>
-  <h4>{{ windDirection }}</h4>
-  <h4>{{ currentWeatherData.windspeed_10m }}kmh</h4>
+  <div class="dailyWeather">
+    <DailyWeather :dailyWeather="this.dailyWeatherData" />
+  </div>
 </template>
 
 <script>
 import geocoding from "@/services/geocoding.js";
 import weatherapi from "@/services/weatherapi.js";
 import weatherCodeConv from "@/assets/weaterCodeConv.json";
+import DailyWeather from "@/components/dailyWeather.vue";
 
 export default {
   name: "CurrentWeather",
+  components: {
+    DailyWeather,
+  },
   props: {
     lat: Number,
     lng: Number,
@@ -30,6 +39,7 @@ export default {
   data() {
     return {
       currentWeatherData: {},
+      dailyWeatherData: {},
       windDirection: null,
       weatherType: {},
       timeOfDay: "",

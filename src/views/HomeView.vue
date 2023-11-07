@@ -3,7 +3,6 @@
     <div>
       <CurrentWeather :lat="this.location.lat" :lng="this.location.lng" />
     </div>
-    <DailyWeather />
   </div>
   <div v-else>
     <LocationInput @coordinatesUpdated="updateLocation" />
@@ -11,14 +10,12 @@
 </template>
 
 <script>
-import DailyWeather from "@/components/dailyWeather.vue";
 import LocationInput from "@/components/locationInput.vue";
 import CurrentWeather from "@/components/currentWeather.vue";
 
 export default {
   name: "HomeView",
   components: {
-    DailyWeather,
     LocationInput,
     CurrentWeather,
   },
