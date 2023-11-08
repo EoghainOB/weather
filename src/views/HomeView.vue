@@ -1,7 +1,7 @@
 <template>
   <div v-if="this.location.lat">
-    <div>
-      <CurrentWeather :lat="this.location.lat" :lng="this.location.lng" />
+    <div class="allWeather">
+      <AllWeather :lat="this.location.lat" :lng="this.location.lng" />
     </div>
   </div>
   <div v-else>
@@ -11,13 +11,13 @@
 
 <script>
 import LocationInput from "@/components/locationInput.vue";
-import CurrentWeather from "@/components/currentWeather.vue";
+import AllWeather from "@/components/allWeather.vue";
 
 export default {
   name: "HomeView",
   components: {
     LocationInput,
-    CurrentWeather,
+    AllWeather,
   },
   data() {
     return {
@@ -57,4 +57,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.allWeather {
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+</style>
