@@ -17,7 +17,7 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #d4d4d4;
 }
 
 h1,

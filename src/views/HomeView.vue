@@ -60,7 +60,9 @@ export default {
 <style scoped>
 .allWeather {
   margin: auto;
+  max-width: 500px;
   padding-left: 15px;
   padding-right: 15px;
+  background-color: rgb(223, 223, 223);
 }
 </style>

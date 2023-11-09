@@ -1,5 +1,9 @@
 <template v-if="currentWeatherData.time">
   <div class="cityName">
+    <img
+      src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
+      alt="Location"
+    />
     <h2 v-if="locationAddress">
       {{ locationAddress.city }}
     </h2>
@@ -89,4 +93,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.cityName {
+  display: flex;
+}
+
+img {
+  width: 25px;
+  padding-right: 10px;
+}
+</style>

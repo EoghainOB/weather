@@ -1,5 +1,4 @@
 <template v-if="currentWeather.time">
-  <h3>Current</h3>
   <div class="currentWeatherBlock">
     <div v-if="timeOfDay">
       <img :src="getWeatherImage(currentWeather.weathercode)" />
@@ -14,7 +13,7 @@
       </div>
       <div class="precipitation">
         <img
-          src="@/assets/icons/390463_cloud_rain_weather_drop_forecast_icon.svg"
+          src="@/assets/icons/390463_cloud_rain_weather_drop_forecast_icon_white.svg"
           alt="Precipitation"
         />
         <h4>{{ currentWeather.precipitation }}mm</h4>
@@ -28,7 +27,7 @@
       </div>
       <div class="windSpeed">
         <img
-          src="@/assets/icons/390480_eolo_weather_wind_forecast_icon.svg"
+          src="@/assets/icons/390480_eolo_weather_wind_forecast_icon_white.svg"
           alt="Wind speed"
         />
         <h4>{{ currentWeather.windspeed_10m }}kmh ({{ windDirection }})</h4>
@@ -73,13 +72,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 500px;
+  background-color: bisque;
+  border-radius: 10px;
 }
 .currentDetails {
+  width: 100%;
+  background-color: rgb(0, 0, 0);
   display: flex;
+  justify-content: space-around;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   gap: 1em;
 }
 
@@ -94,5 +97,9 @@ export default {
 .windSpeed {
   display: flex;
   align-items: center;
+}
+
+.windSpeed {
+  margin-right: 15px;
 }
 </style>
