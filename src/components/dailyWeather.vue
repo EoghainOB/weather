@@ -5,10 +5,36 @@
       <div class="day" v-for="(day, index) in dailyWeather.time" :key="index">
         <h3>{{ day }}</h3>
         <img :src="getWeatherImage(dailyWeather.weathercode[index])" />
-        <p>Max: {{ dailyWeather.temperature_2m_max[index] }}°C</p>
-        <p>Min: {{ dailyWeather.temperature_2m_min[index] }}°C</p>
-        <p>Precipitation: {{ dailyWeather.precipitation_sum[index] }}mm</p>
-        <p>Wind Speed: {{ dailyWeather.windspeed_10m_max[index] }}km/h</p>
+        <div class="weatherInfo">
+          <div class="temperature">
+            <img
+              src="@/assets/icons/390473_temperature_weather_forecast_thermometer_icon.svg"
+              alt="Max temperature"
+            />
+            <p>{{ dailyWeather.temperature_2m_max[index] }}°C</p>
+          </div>
+          <div class="temperature">
+            <img
+              src="@/assets/icons/390475_temperature_weather_forecast_thermometer_icon.svg"
+              alt="Min temperature"
+            />
+            <p>{{ dailyWeather.temperature_2m_min[index] }}°C</p>
+          </div>
+          <div class="precipitation">
+            <img
+              src="@/assets/icons/390463_cloud_rain_weather_drop_forecast_icon.svg"
+              alt="Precipitation"
+            />
+            <p>{{ dailyWeather.precipitation_sum[index] }}mm</p>
+          </div>
+          <div class="windspeed">
+            <img
+              src="@/assets/icons/390480_eolo_weather_wind_forecast_icon.svg"
+              alt="Wind speed"
+            />
+            <p>{{ dailyWeather.windspeed_10m_max[index] }}km/h</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -32,14 +58,23 @@ export default {
 </script>
 
 <style scoped>
-.dailyWeatherBlock {
-}
-
 .dailyDetails {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
+
 .dailyDetails img {
   width: 100px;
+}
+
+.weatherInfo img {
+  width: 30px;
+}
+
+.temperature,
+.precipitation,
+.windspeed {
+  display: flex;
 }
 </style>

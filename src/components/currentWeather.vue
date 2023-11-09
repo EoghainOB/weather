@@ -5,11 +5,34 @@
       <img :src="getWeatherImage(currentWeather.weathercode)" />
     </div>
     <div class="currentDetails">
-      <h4>{{ currentWeather.temperature_2m }}&#176;C</h4>
-      <h4>Precipitation: {{ currentWeather.precipitation }}mm</h4>
-      <h4>{{ currentWeather.relativehumidity_2m }}% humidity</h4>
-      <h4>{{ windDirection }}asdas</h4>
-      <h4>{{ currentWeather.windspeed_10m }}kmh</h4>
+      <div class="temerature">
+        <img
+          src="@/assets/icons/390474_temperature_weather_forecast_thermometer_icon.svg"
+          alt="Temperature"
+        />
+        <h4>{{ currentWeather.temperature_2m }}&#176;C</h4>
+      </div>
+      <div class="precipitation">
+        <img
+          src="@/assets/icons/390463_cloud_rain_weather_drop_forecast_icon.svg"
+          alt="Precipitation"
+        />
+        <h4>{{ currentWeather.precipitation }}mm</h4>
+      </div>
+      <div class="humidity">
+        <img
+          src="@/assets/icons/390469_arrow_cloud_upload_weather_up_icon.svg"
+          alt="Humidity"
+        />
+        <h4>{{ currentWeather.relativehumidity_2m }}%</h4>
+      </div>
+      <div class="windSpeed">
+        <img
+          src="@/assets/icons/390480_eolo_weather_wind_forecast_icon.svg"
+          alt="Wind speed"
+        />
+        <h4>{{ currentWeather.windspeed_10m }}kmh ({{ windDirection }})</h4>
+      </div>
     </div>
   </div>
 </template>
@@ -26,32 +49,20 @@ export default {
   },
   data() {
     return {
-      dailyWeatherData: {},
       windDirection: "",
     };
   },
-  mounted() {
-    this.getWindDirection(this.currentWeather.winddirection_10m);
-  },
   methods: {
     getWeatherImage(code) {
-      if (this.timeOfDay) {
-        const weather = weatherCodeConv[code][this.timeOfDay].image;
-        return weather;
-      }
+      const weather = weatherCodeConv[code][this.timeOfDay].image;
+      this.getWindDirection(this.currentWeather.winddirection_10m);
+      return weather;
     },
     getWindDirection(angle) {
-      const directions = [
-        "↓ N",
-        "↙ NE",
-        "← E",
-        "↖ SE",
-        "↑ S",
-        "↗ SW",
-        "→ W",
-        "↘ NW",
-      ];
-      this.windDirection = directions[Math.round(angle / 45) % 8];
+      if (this.currentWeather.winddirection_10m) {
+        const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+        this.windDirection = directions[Math.round(angle / 45) % 8];
+      }
     },
   },
 };
@@ -70,5 +81,18 @@ export default {
 .currentDetails {
   display: flex;
   gap: 1em;
+}
+
+.currentDetails img {
+  height: 40px;
+}
+
+.temerature,
+.precipitation,
+.humidity,
+.windDirection,
+.windSpeed {
+  display: flex;
+  align-items: center;
 }
 </style>

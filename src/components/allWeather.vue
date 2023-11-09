@@ -6,8 +6,8 @@
   </div>
   <div>
     <CurrentWeather
-      :currentWeather="currentWeatherData"
-      :timeOfDay="timeOfDay"
+      :currentWeather="this.currentWeatherData"
+      :timeOfDay="this.timeOfDay"
     />
   </div>
   <div>
@@ -48,7 +48,7 @@ export default {
     lng: "fetchWeatherData",
   },
   methods: {
-    async fetchWeatherData() {
+    fetchWeatherData() {
       if (this.lat && this.lng) {
         this.weather(this.lat, this.lng);
       }
