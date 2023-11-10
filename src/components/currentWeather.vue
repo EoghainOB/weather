@@ -118,6 +118,7 @@ export default {
 @media only screen and (max-width: 500px) {
   .currentDetails {
     gap: 0;
+    padding: 10px 0px;
   }
   .temperature,
   .precipitation,
