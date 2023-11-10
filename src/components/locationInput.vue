@@ -10,6 +10,13 @@
           <input type="text" placeholder="Enter location" name="locationName" />
           <button type="submit">Submit</button>
         </form>
+        <div class="useLocation">
+          <img
+            src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
+            alt="Location"
+          />
+          <h4>Use your current location</h4>
+        </div>
       </div>
     </div>
   </div>
@@ -101,5 +108,23 @@ input {
   color: white;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.useLocation img {
+  width: 20px;
+  padding-right: 5px;
+}
+
+.useLocation {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
 }
 </style>
