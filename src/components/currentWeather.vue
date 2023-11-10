@@ -1,5 +1,10 @@
 <template v-if="currentWeather.time">
-  <div class="currentWeatherBlock">
+  <div
+    :class="[
+      'currentWeatherBlock',
+      timeOfDay === 'day' ? 'dayTime' : 'nightTime',
+    ]"
+  >
     <div v-if="timeOfDay">
       <img :src="getWeatherImage(currentWeather.weathercode)" />
     </div>
@@ -72,8 +77,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: bisque;
   border-radius: 10px;
+}
+
+.dayTime {
+  background-color: deepskyblue;
+}
+.nightTime {
+  background-color: rgb(11, 0, 54);
 }
 .currentDetails {
   width: 100%;

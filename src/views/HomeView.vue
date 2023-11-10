@@ -1,11 +1,14 @@
 <template>
-  <div v-if="this.location.lat">
-    <div class="allWeather">
-      <AllWeather :lat="this.location.lat" :lng="this.location.lng" />
+  <div>
+    <div v-if="loading">Loading...</div>
+    <div v-else-if="location.lat">
+      <div class="allWeather">
+        <AllWeather :lat="location.lat" :lng="location.lng" />
+      </div>
     </div>
-  </div>
-  <div v-else>
-    <LocationInput @coordinatesUpdated="updateLocation" />
+    <div v-else>
+      <LocationInput @coordinatesUpdated="updateLocation" />
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,7 @@ export default {
         lat: null,
         lng: null,
       },
+      loading: true,
       geolocationAvailable: false,
     };
   },
@@ -32,21 +36,25 @@ export default {
     this.getLocation();
   },
   methods: {
-    getLocation() {
+    async getLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            this.location.lat = position.coords.latitude;
-            this.location.lng = position.coords.longitude;
-            this.geolocationAvailable = true;
-          },
-          () => {
-            this.geolocationAvailable = false;
-          }
-        );
+        try {
+          const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+          });
+
+          this.location.lat = position.coords.latitude;
+          this.location.lng = position.coords.longitude;
+          this.geolocationAvailable = true;
+        } catch (error) {
+          this.geolocationAvailable = false;
+        } finally {
+          this.loading = false;
+        }
       } else {
         console.error("Geolocation is not supported in this browser.");
         this.geolocationAvailable = false;
+        this.loading = false;
       }
     },
     updateLocation(coordinates) {

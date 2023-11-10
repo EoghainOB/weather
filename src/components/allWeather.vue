@@ -64,15 +64,16 @@ export default {
         this.dailyWeatherData = response.data.daily;
         this.getTimeOfDay(
           response.data.daily.sunrise[0],
-          response.data.daily.sunset[0]
+          response.data.daily.sunset[0],
+          response.data.current.time
         );
         this.address(lat, lng);
       } catch (error) {
         console.error("Failed to fetch weather data: ", error);
       }
     },
-    async getTimeOfDay(sunrise, sunset) {
-      const currentTime = new Date();
+    async getTimeOfDay(sunrise, sunset, current) {
+      const currentTime = new Date(current);
       const sunriseTime = new Date(sunrise);
       const sunsetTime = new Date(sunset);
       if (currentTime >= sunriseTime && currentTime < sunsetTime) {

@@ -1,8 +1,12 @@
 <template>
-  <form @submit.prevent="submitLocation">
-    <input type="text" placeholder="Enter location" name="locationName" />
-    <button type="submit">Submit</button>
-  </form>
+  <div class="locationInput">
+    <div class="formInput">
+      <form @submit.prevent="submitLocation">
+        <input type="text" placeholder="Enter location" name="locationName" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -34,4 +38,45 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.locationInput {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  height: 100vh;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.formInput {
+  width: 100%;
+}
+
+input {
+  width: 80%;
+  border: none;
+  height: 38px;
+  font-size: large;
+  padding-left: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.formInput button {
+  width: 20%;
+  min-width: 95px;
+  height: 40px;
+  background-color: #00b3ff;
+  border: none;
+  font-size: large;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+</style>

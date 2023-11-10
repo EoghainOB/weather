@@ -90,7 +90,6 @@ export default {
 
 .allDetails {
   padding-top: 10px;
-  width: 70%;
 }
 
 .weatherInfo {
@@ -98,6 +97,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1em;
 }
 .weatherInfo img {
   width: 30px;
