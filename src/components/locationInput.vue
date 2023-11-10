@@ -1,10 +1,16 @@
 <template>
   <div class="locationInput">
-    <div class="formInput">
-      <form @submit.prevent="submitLocation">
-        <input type="text" placeholder="Enter location" name="locationName" />
-        <button type="submit">Submit</button>
-      </form>
+    <div class="formContainer">
+      <div class="formInput">
+        <div class="title">
+          <img src="@/assets/icons/wi-day-cloudy.svg" alt="" />
+          <h1>GeoMeteo</h1>
+        </div>
+        <form @submit.prevent="submitLocation">
+          <input type="text" placeholder="Enter location" name="locationName" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -42,11 +48,24 @@ export default {
 .locationInput {
   display: flex;
   align-items: center;
-  max-width: 500px;
+  flex-wrap: wrap;
   height: 100vh;
-  margin: auto;
+}
+
+.formContainer {
+  width: 100%;
+  background-color: #63c9ff;
+  padding-top: 30px;
+  padding-bottom: 40px;
   padding-left: 15px;
   padding-right: 15px;
+  box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.14);
+}
+
+.formInput {
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
 }
 
 form {
@@ -54,8 +73,12 @@ form {
   align-items: center;
   justify-content: space-between;
 }
-.formInput {
+.title {
+  display: flex;
   width: 100%;
+}
+.title img {
+  width: 70px;
 }
 
 input {

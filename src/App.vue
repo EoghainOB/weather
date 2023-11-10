@@ -12,6 +12,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
 
 body {
   display: block;
@@ -20,7 +21,10 @@ body {
   background-color: #d4d4d4;
 }
 
-h1,
+h1 {
+  font-family: "Merriweather", serif;
+}
+
 h2,
 h3,
 h4,
