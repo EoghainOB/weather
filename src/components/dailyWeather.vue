@@ -37,7 +37,7 @@
                   src="@/assets/icons/390480_eolo_weather_wind_forecast_icon.svg"
                   alt="Wind speed"
                 />
-                <p>{{ dailyWeather.windspeed_10m_max[index] }}km/h</p>
+                <p>{{ dailyWeather.windspeed_10m_max[index] }}kph</p>
               </div>
             </div>
           </div>
@@ -120,6 +120,32 @@ export default {
 }
 
 .day p {
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+
+@media only screen and (max-width: 500px) {
+  .weatherInfo {
+    gap: 0;
+  }
+
+  .allDetails {
+    margin-right: 10px;
+    padding-top: 0px;
+  }
+
+  .temperature,
+  .precipitation,
+  .windspeed {
+    width: 50%;
+    height: 35px;
+    align-items: center;
+  }
+  .day p {
+    font-size: 1em;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
 </style>

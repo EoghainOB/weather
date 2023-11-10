@@ -5,7 +5,7 @@
       alt="Location"
     />
     <h2 v-if="locationAddress">
-      {{ locationAddress.city }}
+      {{ locationAddress.city }}, {{ locationAddress.country }}
     </h2>
   </div>
   <div>
@@ -97,6 +97,7 @@ export default {
 <style scoped>
 .cityName {
   display: flex;
+  padding: 15px;
 }
 
 img {

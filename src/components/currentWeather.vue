@@ -9,7 +9,7 @@
       <img :src="getWeatherImage(currentWeather.weathercode)" />
     </div>
     <div class="currentDetails">
-      <div class="temerature">
+      <div class="temperature">
         <img
           src="@/assets/icons/390474_temperature_weather_forecast_thermometer_icon.svg"
           alt="Temperature"
@@ -91,6 +91,7 @@ export default {
   background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -101,7 +102,7 @@ export default {
   height: 40px;
 }
 
-.temerature,
+.temperature,
 .precipitation,
 .humidity,
 .windDirection,
@@ -112,5 +113,32 @@ export default {
 
 .windSpeed {
   margin-right: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+  .currentDetails {
+    gap: 0;
+  }
+  .temperature,
+  .precipitation,
+  .humidity,
+  .windDirection,
+  .windSpeed {
+    display: flex;
+    width: 45%;
+    height: 40px;
+  }
+  .windSpeed {
+    margin-right: 0;
+  }
+
+  .temperature,
+  .humidity {
+    padding-left: 20px;
+  }
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
 }
 </style>

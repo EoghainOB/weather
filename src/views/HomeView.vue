@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="location.lat">
+    <div v-if="location.lat">
       <div class="allWeather">
         <AllWeather :lat="location.lat" :lng="location.lng" />
       </div>
@@ -9,6 +8,7 @@
     <div v-else>
       <LocationInput @coordinatesUpdated="updateLocation" />
     </div>
+    <div v-if="loading">Loading...</div>
   </div>
 </template>
 
