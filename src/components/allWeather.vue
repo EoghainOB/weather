@@ -117,6 +117,7 @@ export default {
   padding: 5px 20px;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 img {
