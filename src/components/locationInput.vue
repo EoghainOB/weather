@@ -55,17 +55,12 @@ export default {
 </script>
 
 <style scoped>
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
 .locationInput {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  height: 100vh;
+  height: -webkit-fill-available;
 }
 
 .formContainer {
