@@ -100,17 +100,19 @@ form {
 input {
   width: 80%;
   border: none;
-  height: 38px;
+  height: 40px;
   font-size: large;
   padding-left: 15px;
   border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-bottom-left-radius: 5px;
 }
 
 .formInput button {
   width: 20%;
   min-width: 95px;
-  height: 38px;
+  height: 40px;
   background-color: #00b3ff;
   border: none;
   font-size: large;
