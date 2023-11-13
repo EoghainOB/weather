@@ -21,6 +21,13 @@ body {
   background-color: #d4d4d4;
 }
 
+input,
+textarea,
+.button_style {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 h1 {
   font-family: "Merriweather", serif;
 }

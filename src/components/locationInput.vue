@@ -55,12 +55,6 @@ export default {
 </script>
 
 <style scoped>
-input,
-textarea,
-.button_style {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
 .locationInput {
   display: flex;
   align-items: center;
@@ -138,5 +132,11 @@ h4 {
   padding: 0;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .locationInput {
+    height: 600px;
+  }
 }
 </style>
