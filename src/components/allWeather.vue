@@ -21,7 +21,7 @@
 import geocoding from "@/services/geocoding.js";
 import weatherapi from "@/services/weatherapi.js";
 import DailyWeather from "@/components/dailyWeather.vue";
-import CurrentWeather from "@/components/CurrentWeather.vue";
+import CurrentWeather from "@/components/currentWeather.vue";
 
 export default {
   name: "AllWeather",
