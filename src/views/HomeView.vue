@@ -52,7 +52,6 @@ export default {
           } else {
             console.error("Error getting location: ", error.message);
           }
-
           this.geolocationAvailable = false;
         }
       } else {
