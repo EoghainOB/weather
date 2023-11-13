@@ -1,5 +1,5 @@
 <template v-if="currentWeatherData.time">
-  <div class="cityName" v-if="locationAddress.city">
+  <div class="cityName">
     <img
       src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
       alt="Location"
