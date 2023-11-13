@@ -11,7 +11,6 @@
         @useCurrentLocation="getCurrentLocation"
       />
     </div>
-    <div v-if="loading">Loading...</div>
   </div>
 </template>
 
@@ -31,7 +30,6 @@ export default {
         lat: null,
         lng: null,
       },
-      loading: true,
       geolocationAvailable: false,
     };
   },
@@ -56,13 +54,10 @@ export default {
           }
 
           this.geolocationAvailable = false;
-        } finally {
-          this.loading = false;
         }
       } else {
         console.error("Geolocation is not supported in this browser.");
         this.geolocationAvailable = false;
-        this.loading = false;
       }
     },
     updateLocation(coordinates) {
