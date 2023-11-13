@@ -5,7 +5,9 @@
         src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
         alt="Location"
       />
-      <h2>{{ locationAddress.city }}, {{ locationAddress.country }}</h2>
+      <h2 @click="clearLocation">
+        {{ locationAddress.city }}, {{ locationAddress.country }}
+      </h2>
     </div>
     <div>
       <CurrentWeather
@@ -89,6 +91,9 @@ export default {
       } catch (error) {
         console.error("Error fetching address: ", error);
       }
+    },
+    clearLocation() {
+      this.$emit("clearLocation");
     },
   },
 };

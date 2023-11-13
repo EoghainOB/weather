@@ -2,7 +2,11 @@
   <div>
     <div v-if="location.lat">
       <div class="allWeather">
-        <AllWeather :lat="location.lat" :lng="location.lng" />
+        <AllWeather
+          :lat="location.lat"
+          :lng="location.lng"
+          @clearLocation="clearLocation"
+        />
       </div>
     </div>
     <div v-else>
@@ -62,6 +66,10 @@ export default {
     updateLocation(coordinates) {
       this.location.lng = coordinates[0];
       this.location.lat = coordinates[1];
+    },
+    clearLocation() {
+      this.location.lat = null;
+      this.location.lng = null;
     },
   },
 };
