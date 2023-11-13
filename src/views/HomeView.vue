@@ -6,7 +6,10 @@
       </div>
     </div>
     <div v-else>
-      <LocationInput @coordinatesUpdated="updateLocation" />
+      <LocationInput
+        @coordinatesUpdated="updateLocation"
+        @useCurrentLocation="getCurrentLocation"
+      />
     </div>
     <div v-if="loading">Loading...</div>
   </div>
@@ -32,11 +35,8 @@ export default {
       geolocationAvailable: false,
     };
   },
-  mounted() {
-    this.getLocation();
-  },
   methods: {
-    async getLocation() {
+    async getCurrentLocation() {
       if (navigator.geolocation) {
         try {
           const position = await new Promise((resolve, reject) => {
@@ -47,6 +47,14 @@ export default {
           this.location.lng = position.coords.longitude;
           this.geolocationAvailable = true;
         } catch (error) {
+          if (error.code === error.PERMISSION_DENIED) {
+            const enableGeolocation = confirm(
+              "Please enable geolocation for this site in your browser settings."
+            );
+          } else {
+            console.error("Error getting location: ", error.message);
+          }
+
           this.geolocationAvailable = false;
         } finally {
           this.loading = false;

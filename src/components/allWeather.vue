@@ -1,12 +1,10 @@
 <template v-if="currentWeatherData.time">
-  <div class="cityName">
+  <div class="cityName" v-if="locationAddress.city">
     <img
       src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
       alt="Location"
     />
-    <h2 v-if="locationAddress">
-      {{ locationAddress.city }}, {{ locationAddress.country }}
-    </h2>
+    <h2>{{ locationAddress.city }}, {{ locationAddress.country }}</h2>
   </div>
   <div>
     <CurrentWeather

@@ -3,14 +3,14 @@
     <div class="formContainer">
       <div class="formInput">
         <div class="title">
-          <img src="@/assets/icons/wi-day-cloudy.svg" alt="" />
+          <img src="@/assets/icons/wi-day-cloudy.svg" alt="GeoMeteo" />
           <h1>GeoMeteo</h1>
         </div>
         <form @submit.prevent="submitLocation">
           <input type="text" placeholder="Enter location" name="locationName" />
           <button type="submit">Submit</button>
         </form>
-        <div class="useLocation">
+        <div class="useLocation" @click="useCurrentLocation">
           <img
             src="@/assets/icons/8324266_ui_essential_app_location_map_icon.svg"
             alt="Location"
@@ -46,6 +46,9 @@ export default {
       } catch (error) {
         console.error("Error fetching address: ", error);
       }
+    },
+    useCurrentLocation() {
+      this.$emit("useCurrentLocation");
     },
   },
 };
@@ -126,5 +129,6 @@ h4 {
   margin: 0;
   padding: 0;
   text-decoration: underline;
+  cursor: pointer;
 }
 </style>
