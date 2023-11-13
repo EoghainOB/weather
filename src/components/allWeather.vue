@@ -103,6 +103,7 @@ export default {
   margin-bottom: 1em;
   background-color: deepskyblue;
   border-radius: 10px;
+  padding: 8px;
 }
 
 .cityName h2 {
@@ -115,6 +116,20 @@ export default {
 
 img {
   width: 30px;
-  padding: 8px;
+  padding-right: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+  .cityName {
+    padding: 6px;
+  }
+  .cityName h2 {
+    font-size: large;
+    padding: 5px 10px;
+  }
+  img {
+    width: 25px;
+    padding-right: 6px;
+  }
 }
 </style>
