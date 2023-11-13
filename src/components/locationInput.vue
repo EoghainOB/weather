@@ -55,12 +55,17 @@ export default {
 </script>
 
 <style scoped>
+input,
+textarea,
+.button_style {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
 .locationInput {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   height: 100vh;
-  height: -webkit-fill-available;
 }
 
 .formContainer {
@@ -105,7 +110,7 @@ input {
 .formInput button {
   width: 20%;
   min-width: 95px;
-  height: 40px;
+  height: 38px;
   background-color: #00b3ff;
   border: none;
   font-size: large;
