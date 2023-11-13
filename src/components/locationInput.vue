@@ -8,7 +8,7 @@
         </div>
         <form @submit.prevent="submitLocation">
           <input type="text" placeholder="Enter location" name="locationName" />
-          <div class="buttonSubmit" type="submit">Submit</div>
+          <button type="submit">Submit</button>
         </form>
         <div class="useLocation" @click="useCurrentLocation">
           <img
@@ -101,7 +101,7 @@ input {
   border-bottom-left-radius: 5px;
 }
 
-.buttonSubmit {
+.formInput button {
   width: 20%;
   min-width: 95px;
   height: 40px;
