@@ -133,10 +133,4 @@ h4 {
   text-decoration: underline;
   cursor: pointer;
 }
-
-@media only screen and (max-width: 500px) {
-  .locationInput {
-    height: 100svh;
-  }
-}
 </style>
