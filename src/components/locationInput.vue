@@ -136,7 +136,7 @@ h4 {
 
 @media only screen and (max-width: 500px) {
   .locationInput {
-    height: 600px;
+    height: 100svh;
   }
 }
 </style>
