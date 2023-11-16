@@ -59,7 +59,7 @@ export default {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  height: 100vh;
+  height: 100svh;
 }
 
 .formContainer {
